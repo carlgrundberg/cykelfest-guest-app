@@ -12,6 +12,6 @@ export default withSession(async (req, res) => {
     await req.session.save();
     res.json(user);
   } else {
-    res.status(400).json({ error: "Not found" });
+    res.status(400).json({ error: "Felaktigt mobilnummer" });
   }
 });

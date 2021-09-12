@@ -2,7 +2,7 @@ import { useState } from "react";
 import useUser from "../lib/useUser";
 import fetchJson from "../lib/fetchJson";
 import Layout from "../components/Layout";
-import { Form, Input, Button, Radio } from "antd";
+import { Form, Input, Button, Radio, Alert } from "antd";
 
 const Login = () => {
   const { mutateUser } = useUser({
@@ -22,8 +22,7 @@ const Login = () => {
         })
       );
     } catch (error) {
-      console.error("An unexpected error happened:", error);
-      setErrorMsg(error.data.message);
+      setErrorMsg(error.data.error);
     }
   };
 
@@ -33,6 +32,7 @@ const Login = () => {
 
   return (
     <Layout>
+      {errorMsg && <Alert message={errorMsg} type="error" showIcon />}
       <Form
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -43,7 +43,7 @@ const Login = () => {
           name="phone"
           rules={[{ required: true, message: "Mobilnummer saknas" }]}
         >
-          <Input />
+          <Input type="tel" autoComplete="tel-national" />
         </Form.Item>
 
         <Form.Item>

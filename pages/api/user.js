@@ -1,4 +1,5 @@
 import withSession from "../../lib/session";
+import { getDataForHost } from "../../lib/data";
 
 export default withSession(async (req, res) => {
   const user = req.session.get("user");
@@ -7,6 +8,7 @@ export default withSession(async (req, res) => {
     res.json({
       isLoggedIn: true,
       ...user,
+      ...(await getDataForHost(user.name)),
     });
   } else {
     res.json({
