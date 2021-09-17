@@ -1,14 +1,10 @@
 import { useState } from "react";
 import useUser from "../lib/useUser";
 import fetchJson from "../lib/fetchJson";
-import Layout from "../components/Layout";
 import { Form, Input, Button, Radio, Alert } from "antd";
 
 const Login = () => {
-  const { mutateUser } = useUser({
-    redirectTo: "/",
-    redirectIfFound: true,
-  });
+  const { mutateUser } = useUser();
 
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -31,7 +27,12 @@ const Login = () => {
   };
 
   return (
-    <Layout>
+    <>
+      <h2>Hej!</h2>
+      <p>
+        Fyll i ditt mobilnummer för att logga in och se var du ska cykla under
+        kvällen.
+      </p>
       {errorMsg && <Alert message={errorMsg} type="error" showIcon />}
       <Form
         onFinish={onFinish}
@@ -41,7 +42,10 @@ const Login = () => {
         <Form.Item
           label="Mobilnummer"
           name="phone"
-          rules={[{ required: true, message: "Mobilnummer saknas" }]}
+          rules={[
+            { required: true, message: "Mobilnummer saknas" },
+            { len: 10, message: "Fyll i minst 10 siffror" },
+          ]}
         >
           <Input type="tel" autoComplete="tel-national" />
         </Form.Item>
@@ -52,7 +56,7 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
-    </Layout>
+    </>
   );
 };
 

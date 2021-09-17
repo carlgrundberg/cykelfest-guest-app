@@ -1,21 +1,17 @@
 import React from "react";
 import Head from "next/head";
 import { Layout, Button, Spin } from "antd";
+import { IntlProvider } from "react-intl";
 import useUser from "../lib/useUser";
-import { useRouter } from "next/router";
 import fetchJson from "../lib/fetchJson";
 
 const { Header, Content, Footer } = Layout;
 
 const AppLayout = ({ children, isLogin }) => {
-  const { user, mutateUser } = useUser({
-    redirectTo: !isLogin && "/login",
-  });
-
-  const router = useRouter();
+  const { user, mutateUser } = useUser();
 
   return (
-    <>
+    <IntlProvider locale="sv-SE">
       <Head>
         <title>🚲 Vittsjö cykelfest 2021</title>
       </Head>
@@ -46,7 +42,6 @@ const AppLayout = ({ children, isLogin }) => {
                   await fetchJson("/api/logout", { method: "POST" }),
                   false
                 );
-                router.push("/login");
               }}
             >
               Logga ut
@@ -54,7 +49,7 @@ const AppLayout = ({ children, isLogin }) => {
           )}
         </Footer>
       </Layout>
-    </>
+    </IntlProvider>
   );
 };
 
