@@ -44,7 +44,7 @@ export default function Home() {
               <Card
                 title="Förrätt"
                 style={{ marginBottom: 16 }}
-                extra={"16:00"}
+                extra={"Kl 16:00"}
               >
                 {user.name === user.host1 ? (
                   <>Ni bjuder på förrätt på {user.address}.</>
@@ -64,7 +64,7 @@ export default function Home() {
               <Card
                 title="Huvudrätt"
                 style={{ marginBottom: 16 }}
-                extra={"17:45"}
+                extra={"Kl 17:45"}
               >
                 {user.name === user.host2 ? (
                   <>Ni bjuder på huvudrätt på {user.address}.</>
@@ -81,7 +81,7 @@ export default function Home() {
               </Card>
             </Col>
             <Col span={24}>
-              <Card title="Efterrätt" extra={"20:00"}>
+              <Card title="Efterrätt" extra={"Kl 20:00"}>
                 {user.name === user.host3 ? (
                   <>Ni bjuder på efterrätt på {user.address}.</>
                 ) : (

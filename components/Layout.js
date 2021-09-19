@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Script from "next/script";
 import { Layout, Button, Spin } from "antd";
 import { IntlProvider } from "react-intl";
 import useUser from "../lib/useUser";
@@ -14,10 +13,6 @@ const AppLayout = ({ children, isLogin }) => {
 
   return (
     <IntlProvider locale="sv-SE">
-      <Script
-        src="https://polyfill.io/v3/polyfill.min.js?features=Intl.getCanonicalLocales,Intl.Locale,Intl.PluralRules,Intl.RelativeTimeFormat,Intl.PluralRules.~locale.sv,Intl.RelativeTimeFormat.~locale.sv"
-        strategy="beforeInteractive"
-      />
       <Head>
         <title>Vittsjö cykelfest 2021</title>
         <link
