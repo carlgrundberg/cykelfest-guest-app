@@ -7,10 +7,12 @@ const Login = () => {
   const { mutateUser } = useUser();
 
   const [errorMsg, setErrorMsg] = useState("");
+  const [loading, setLoading] = useState();
 
   const onFinish = async (values) => {
     try {
-      mutateUser(
+      setLoading(true);
+      await mutateUser(
         await fetchJson("/api/login", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -19,6 +21,7 @@ const Login = () => {
       );
     } catch (error) {
       setErrorMsg(error.data.error);
+      setLoading(false);
     }
   };
 
@@ -51,7 +54,7 @@ const Login = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={loading}>
             Logga in
           </Button>
         </Form.Item>
