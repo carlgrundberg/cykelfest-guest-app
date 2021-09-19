@@ -33,7 +33,7 @@ const AppLayout = ({ children, isLogin }) => {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=Intl,Intl.RelativeTimeFormat,Intl.PluralRules.~locale.sv,Intl.RelativeTimeFormat.~locale.sv&flags=always"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=Intl.getCanonicalLocales,Intl.Locale,Intl.PluralRules,Intl.RelativeTimeFormat,Intl.PluralRules.~locale.sv,Intl.RelativeTimeFormat.~locale.sv"></script>
       </Head>
 
       <Layout>
