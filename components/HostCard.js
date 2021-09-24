@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card, Spin } from "antd";
 import { FormattedRelativeTime } from "react-intl";
 import selectUnit from "../lib/selectUnit";
 
@@ -37,12 +37,16 @@ const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
         actions.push(<a href={`tel:${host.phone2}`}>Tel 2</a>);
       }
     } else {
-      content = (
-        <>
-          Var ni ska äta förätt visas{" "}
-          <FormattedRelativeTime {...selectUnit(timestamp)} />.
-        </>
-      );
+      if (host === undefined) {
+        content = <Spin />;
+      } else {
+        content = (
+          <>
+            Var ni ska äta förätt visas{" "}
+            <FormattedRelativeTime {...selectUnit(timestamp)} />.
+          </>
+        );
+      }
     }
   }
 

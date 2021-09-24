@@ -92,6 +92,9 @@ const AppLayout = ({ children, isLogin }) => {
           .ant-card-head-title {
             text-transform: capitalize;
           }
+          .ant-card-body {
+            text-align: center;
+          }
         `}
       </style>
     </IntlProvider>

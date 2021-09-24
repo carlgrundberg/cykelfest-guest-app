@@ -73,7 +73,7 @@ export default function Home() {
             <Col span={24}>
               <HostCard
                 user={user}
-                host={user.host2}
+                host={user.host3}
                 dish="efterrätt"
                 now={now}
                 timestamp={timestamps[2]}
