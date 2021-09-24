@@ -5,8 +5,7 @@ import { Card, Col, Row } from "antd";
 import { FormattedRelativeTime } from "react-intl";
 import selectUnit from "../lib/selectUnit";
 import { useState, useEffect } from "react";
-
-const timestamps = [1632576600000, 1632582000000, 1632589200000];
+import timestamps from "../lib/timestamps";
 
 const hideUntil = (now, date, before, after) => {
   return now < date ? (
@@ -19,13 +18,25 @@ const hideUntil = (now, date, before, after) => {
   );
 };
 
+const getTimestampIndex = (now) => {
+  let i = 0;
+  while (timestamps[i] < now) i++;
+  return i;
+};
+
 export default function Home() {
-  const { user } = useUser();
+  const { user, mutateUser } = useUser();
   const [now, setNow] = useState(new Date());
 
+  console.log(getTimestampIndex(now));
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setNow(new Date());
+    const timer = setTimeout(async () => {
+      const newNow = new Date();
+      if (getTimestampIndex(now) != getTimestampIndex(newNow)) {
+        await mutateUser();
+      }
+      setNow(newNow);
     }, 1000);
     return () => clearTimeout(timer);
   });
