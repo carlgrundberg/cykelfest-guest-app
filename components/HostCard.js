@@ -42,7 +42,7 @@ const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
       } else {
         content = (
           <>
-            Var ni ska äta förätt visas{" "}
+            Var ni ska äta {dish} visas{" "}
             <FormattedRelativeTime {...selectUnit(timestamp)} />.
           </>
         );
