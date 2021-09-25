@@ -30,10 +30,10 @@ const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
           Hitta dit
         </a>,
       ];
-      if (host.phone1) {
+      if (host.phone1 && host.phone1 != "-") {
         actions.push(<a href={`tel:${host.phone1}`}>Tel 1</a>);
       }
-      if (host.phone2) {
+      if (host.phone2 && host.phone2 != "-") {
         actions.push(<a href={`tel:${host.phone2}`}>Tel 2</a>);
       }
     } else {
