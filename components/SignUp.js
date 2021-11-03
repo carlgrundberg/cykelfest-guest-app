@@ -56,20 +56,30 @@ const SignUp = () => {
           <input type="tel" name="phone" />
         </form>
 
-        <Form layout="vertical" name="signup" netlify="true">
-          <Form.Item label="Namn">
-            <Input autoComplete="name" />
-          </Form.Item>
-          <Form.Item label="E-Post">
-            <Input type="email" />
-          </Form.Item>
-          <Form.Item label="Telefon">
-            <Input type="tel" />
+        <Form name="cf" method="post" onFinish={handleSubmit} layout="vertical">
+          <Form.Item
+            label="Don't fill this out"
+            className={`hidden`}
+            style={{ display: `none` }}
+            name="bot-field"
+          >
+            <Input type="hidden" />
           </Form.Item>
 
-          <Button type="primary" htmlType="submit">
-            Skicka
-          </Button>
+          <Form.Item label="Namn" name="name">
+            <Input autoComplete="name" />
+          </Form.Item>
+          <Form.Item label="E-Post" name="email">
+            <Input type="email" />
+          </Form.Item>
+          <Form.Item label="Telefon" name="phone">
+            <Input type="tel" />
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Skicka
+            </Button>
+          </Form.Item>
         </Form>
       </Col>
     </Row>
