@@ -1,4 +1,4 @@
-import { Form, Input, Button, Row, Col } from "antd";
+import { Form, Input, Button, Row, Col, message } from "antd";
 
 function encode(data) {
   return Object.keys(data)
@@ -8,6 +8,7 @@ function encode(data) {
 
 const SignUp = () => {
   const formName = `signup`;
+  const [form] = Form.useForm();
 
   const handleSubmit = (values) => {
     if (values[`bot-field`] === undefined) {
@@ -28,12 +29,13 @@ const SignUp = () => {
 
   const showSuccess = () => {
     // TODO: Show a success message or navigate to a success page.
-    console.log(`form submitted successfully`);
+    message.success(`Din intresseanmälan har registrerats!`);
+    form.resetFields();
   };
 
   const showError = (error) => {
     // TODO: Show an error message to the user
-    console.log(`There was an error submitting the form`);
+    message.error("Något gick fel, försök igen senare!");
     console.log(error);
   };
 
@@ -56,7 +58,7 @@ const SignUp = () => {
           <input type="tel" name="phone" />
         </form>
 
-        <Form name="cf" method="post" onFinish={handleSubmit} layout="vertical">
+        <Form form={form} onFinish={handleSubmit} layout="vertical">
           <Form.Item
             label="Don't fill this out"
             className={`hidden`}
