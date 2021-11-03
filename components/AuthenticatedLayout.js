@@ -8,6 +8,9 @@ import fetchJson from "../lib/fetchJson";
 const { Header, Content, Footer } = Layout;
 
 const AppLayout = ({ children }) => {
+  const { user, mutateUser } = useUser();
+  const [loading, setLoading] = useState();
+
   return (
     <IntlProvider locale="sv-SE">
       <Head>
@@ -33,12 +36,30 @@ const AppLayout = ({ children }) => {
       </Head>
 
       <Layout>
-        <Content>{children}</Content>
+        <Content>{user ? children : <Spin />}</Content>
         <Header>
           <h1 style={{ color: "white", textAlign: "center", marginBottom: 0 }}>
             Vittsjö Cykelfest 2021
           </h1>
         </Header>
+        <Footer>
+          {user?.isLoggedIn && (
+            <Button
+              onClick={async (e) => {
+                setLoading(true);
+                e.preventDefault();
+                await mutateUser(
+                  await fetchJson("/api/logout", { method: "POST" }),
+                  false
+                );
+                setLoading(false);
+              }}
+              loading={loading}
+            >
+              Logga ut
+            </Button>
+          )}
+        </Footer>
       </Layout>
       <style jsx global>
         {`
