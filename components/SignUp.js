@@ -40,51 +40,54 @@ const SignUp = () => {
   };
 
   return (
-    <Row justify="space-around">
-      <Col xs={22} sm={12} md={12} lg={12}>
-        <h1>Anmäl intresse</h1>
-        <p>
-          Fyll i formuläret nedan om du är intresserad av att vara med på nästa
-          cykelfest hösten 2023, så kontaktar vi dig när det är dags.
-        </p>
-        <form
-          name={formName}
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          hidden
+    <>
+      <h2>Anmäl intresse</h2>
+      <p>
+        Fyll i formuläret nedan om du är intresserad av att vara med på nästa
+        cykelfest hösten 2023, så kontaktar vi dig när det är dags.
+      </p>
+      <form
+        name={formName}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+      </form>
+
+      <Form
+        form={form}
+        onFinish={handleSubmit}
+        layout="vertical"
+        style={{ width: "100%" }}
+      >
+        <Form.Item
+          label="Don't fill this out"
+          className={`hidden`}
+          style={{ display: `none` }}
+          name="bot-field"
         >
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <input type="tel" name="phone" />
-        </form>
+          <Input type="hidden" />
+        </Form.Item>
 
-        <Form form={form} onFinish={handleSubmit} layout="vertical">
-          <Form.Item
-            label="Don't fill this out"
-            className={`hidden`}
-            style={{ display: `none` }}
-            name="bot-field"
-          >
-            <Input type="hidden" />
-          </Form.Item>
-
-          <Form.Item label="Namn" name="name">
-            <Input autoComplete="name" />
-          </Form.Item>
-          <Form.Item label="E-Post" name="email">
-            <Input type="email" />
-          </Form.Item>
-          <Form.Item label="Telefon" name="phone">
-            <Input type="tel" />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Skicka
-            </Button>
-          </Form.Item>
-        </Form>
-      </Col>
-    </Row>
+        <Form.Item label="Namn" name="name">
+          <Input autoComplete="name" />
+        </Form.Item>
+        <Form.Item label="E-Post" name="email">
+          <Input type="email" />
+        </Form.Item>
+        <Form.Item label="Telefon" name="phone">
+          <Input type="tel" />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Skicka
+          </Button>
+        </Form.Item>
+      </Form>
+    </>
   );
 };
 

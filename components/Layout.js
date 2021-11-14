@@ -39,6 +39,9 @@ const AppLayout = ({ children }) => {
             Vittsjö Cykelfest 2021
           </h1>
         </Header>
+        <Footer>
+          Kontakt <a href="mailto:info@cykelfest.com">info@cykelfest.com</a>
+        </Footer>
       </Layout>
       <style jsx global>
         {`
@@ -57,8 +60,9 @@ const AppLayout = ({ children }) => {
             padding: 1em;
             display: flex;
             justify-content: center;
-            align-items: center;
             flex-direction: column;
+            max-width: 480px;
+            margin: 0 auto;
           }
           .ant-layout-footer {
             text-align: center;
