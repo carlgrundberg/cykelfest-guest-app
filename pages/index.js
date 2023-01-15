@@ -5,7 +5,11 @@ import { Row, Col } from "antd";
 export default function Home() {
   return (
     <Layout>
-      <h2>Välkommen!</h2>
+      <h2>Lördagen den 16 september 2023 är det åter dags för cykelfest!</h2>
+      <p>
+        Vi kommer senare i vår skicka ut inbjudan men skriv gärna upp datumet
+        redan nu så att ni inte bokar in något annat.
+      </p>
       <p>
         Vittsjö cykelfest är till för alla som bor i Vittsjö. Festen anordnas
         varannat år på hösten, och går ut på att man som par får i uppgift att

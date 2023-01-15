@@ -43,8 +43,8 @@ const SignUp = () => {
     <>
       <h2>Anmäl intresse</h2>
       <p>
-        Fyll i formuläret nedan om du är intresserad av att vara med på nästa
-        cykelfest hösten 2023, så kontaktar vi dig när det är dags.
+        Fyll i formuläret nedan om du är intresserad av att vara med (och inte
+        varit med förut) så skickar vi en inbjudan när det är dags.
       </p>
       <form
         name={formName}
