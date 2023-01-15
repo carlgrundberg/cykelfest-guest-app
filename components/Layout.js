@@ -55,14 +55,12 @@ const AppLayout = ({ children }) => {
             right: 0;
           }
           .ant-layout-content {
-            margin-top: 64px;
-            margin-bottom: 46px;
             padding: 1em;
             display: flex;
             justify-content: center;
             flex-direction: column;
             max-width: 480px;
-            margin: 0 auto;
+            margin: 64px auto 46px;
           }
           .ant-layout-footer {
             text-align: center;
@@ -71,6 +69,7 @@ const AppLayout = ({ children }) => {
             left: 0;
             right: 0;
             padding: 0.5em;
+            background: #001529;
           }
           .ant-card-head-title {
             text-transform: capitalize;
