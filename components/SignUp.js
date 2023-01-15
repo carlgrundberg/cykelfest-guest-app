@@ -44,7 +44,7 @@ const SignUp = () => {
       <h2>Anmäl intresse</h2>
       <p>
         Fyll i formuläret nedan om du är intresserad av att vara med (och inte
-        varit med förut) så skickar vi en inbjudan när det är dags.
+        var med förra gången) så skickar vi en inbjudan när det är dags.
       </p>
       <form
         name={formName}
