@@ -1,5 +1,5 @@
 import useUser from "../lib/useUser";
-import Layout from "./Layout";
+import Layout from "./PublicLayout";
 import Login from "./Login";
 import { Card, Col, Row } from "antd";
 import { FormattedRelativeTime } from "react-intl";
@@ -25,7 +25,7 @@ const getTimestampIndex = (now) => {
   return i;
 };
 
-export default function Home() {
+export default function EventActive() {
   const { user, mutateUser } = useUser();
   const [now, setNow] = useState(new Date());
 
@@ -45,7 +45,7 @@ export default function Home() {
   }
 
   return (
-    <Layout>
+    <>
       {user.isLoggedIn ? (
         <>
           <h1>Hej {user.name}!</h1>
@@ -85,7 +85,7 @@ export default function Home() {
       ) : (
         <Login />
       )}
-    </Layout>
+    </>
   );
 }
 

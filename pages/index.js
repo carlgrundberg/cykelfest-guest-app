@@ -1,51 +1,54 @@
-import Layout from "../components/Layout";
-import SignUp from "../components/SignUp";
-import { Row, Col, Button } from "antd";
+import AssignedDish from "../components/AssignedDish";
+import AuthenticatedLayout from "../components/AuthenticatedLayout";
+// import EventActive from "../components/EventActive";
+// import Invitation from "../components/Invitation";
+// import Layout from "../components/Layout";
 
 export default function Home() {
   return (
-    <Layout>
-      <h2>Lördagen den 16 september 2023 är det åter dags för cykelfest!</h2>
-      <p>
-        Efter fantastiska maträtter, god dricka, vingliga cykelturer och
-        eventuella besök i buskar och diken träffas vi för att festa natten
-        lång.
-      </p>
-      <p>
-        Ni kommer att arrangera en förrätt, varmrätt eller en dessert för 6-8
-        personer inklusive er själva hemma hos er. Vilka som kommer till er
-        avgör slumpen. Vart ni själva ska äta de andra två rätterna är en
-        överraskning. Om ni har någon form av allergi eller annan överkänslighet
-        så meddela detta till festfixarna i samband med anmälan.
-      </p>
-      <p>
-        I god tid innan festen får ni instruktioner om vilken måltid ni bjuder
-        på. Övriga instruktioner erhåller ni på festdagen. Vi startar med
-        gemensam samling och kvällen avslutas med fest och dans på Stickspåret i
-        Vittsjö.
-      </p>
-      <p>Kalaset kostar 250:-/par</p>
-      <p>
-        Anmäl er senast 30 juni genom att fylla i anmälningsformuläret. Swisha
-        sedan till 076-119 41 13 (Ingela Lundqvist) för att slutföra anmälan.
-        Anmälan är bindande!
-      </p>
-
-      <p>
-        <Button
-          href="https://vittsjo.cykelfest.online/signup"
-          type="primary"
-          size="large"
-          block
-        >
-          Till anmälan
-        </Button>
-      </p>
-
-      <p>
-        Obs! Information kommer från e-post info@cykelfest.online så om du inte
-        får något mail så kontrollera om det hamnat i skräpposten.
-      </p>
-    </Layout>
+    // <Layout>
+    //   <Invitation />
+    // </Layout>
+    <AuthenticatedLayout>
+      <AssignedDish />
+      {/* <EventActive /> */}
+      <style jsx global>
+        {`
+          .ant-layout {
+            min-height: 100vh;
+          }
+          .ant-layout-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+          }
+          .ant-layout-content {
+            margin-top: 64px;
+            margin-bottom: 46px;
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          }
+          .ant-layout-footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.5em;
+            background: #001529;
+          }
+          .ant-card-head-title {
+            text-transform: capitalize;
+          }
+          .ant-card-body {
+            text-align: center;
+          }
+        `}
+      </style>
+    </AuthenticatedLayout>
   );
 }

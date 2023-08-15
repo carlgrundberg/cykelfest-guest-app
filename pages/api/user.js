@@ -8,7 +8,7 @@ export default withSession(async (req, res) => {
     res.json({
       isLoggedIn: true,
       ...user,
-      ...(await getDataForHost(user.name)),
+      // ...(await getDataForHost(user.name)),
     });
   } else {
     res.json({

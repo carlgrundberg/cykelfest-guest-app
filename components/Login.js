@@ -32,10 +32,7 @@ const Login = () => {
   return (
     <>
       <h2>Hej!</h2>
-      <p>
-        Fyll i ditt mobilnummer för att logga in och se var du ska cykla under
-        kvällen.
-      </p>
+      <p>Fyll i ditt mobilnummer för att logga in.</p>
       {errorMsg && <Alert message={errorMsg} type="error" showIcon />}
       <Form
         onFinish={onFinish}
