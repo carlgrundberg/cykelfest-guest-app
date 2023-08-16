@@ -1,4 +1,4 @@
-import { Card, Spin } from "antd";
+import { Alert, Button, Card, Spin } from "antd";
 import { FormattedRelativeTime } from "react-intl";
 import selectUnit from "../lib/selectUnit";
 
@@ -9,45 +9,64 @@ const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
 
   let content;
 
-  if (isSelf) {
-    content = (
-      <>
-        Ni bjuder på {dish} på {user.address}.
-      </>
-    );
-  } else {
-    if (host) {
+  if (host) {
+    actions = [
+      <Button
+        type="link"
+        href={`https://www.google.com/maps/dir/?api=1&destination=${host.address}&travelmode=bicycling`}
+        target="_blank"
+      >
+        Hitta dit
+      </Button>,
+    ];
+    if (host.phone1 && host.phone1 != "-") {
+      actions.push(
+        <Button type="link" href={`tel:${host.phone1}`}>
+          Tel 1
+        </Button>
+      );
+    }
+    if (host.phone2 && host.phone2 != "-") {
+      actions.push(
+        <Button type="link" href={`tel:${host.phone2}`}>
+          Tel 2
+        </Button>
+      );
+    }
+
+    if (isSelf) {
+      content = (
+        <>
+          <p>
+            Ni bjuder <b>{user.guests * 2} personer</b> (inklusive er själva) på
+            en <b>{dish}</b>.
+          </p>
+          {user.note && (
+            <Alert
+              message="Obs! Några av era gäster har allergier."
+              description={user.note}
+              type="info"
+              showIcon
+            />
+          )}
+        </>
+      );
+    } else {
       content = (
         <>
           Ni äter {dish} hos {host.name} på {host.address}.
         </>
       );
-      actions = [
-        <a
-          href={`https://www.google.com/maps/dir/?api=1&destination=${host.address}&travelmode=bicycling`}
-          target="_blank"
-        >
-          Hitta dit
-        </a>,
-      ];
-      if (host.phone1 && host.phone1 != "-") {
-        actions.push(<a href={`tel:${host.phone1}`}>Tel 1</a>);
-      }
-      if (host.phone2 && host.phone2 != "-") {
-        actions.push(<a href={`tel:${host.phone2}`}>Tel 2</a>);
-      }
-    } else {
-      if (host === undefined) {
-        content = <Spin />;
-      } else {
-        content = (
-          <>
-            Var ni ska äta {dish} visas{" "}
-            <FormattedRelativeTime {...selectUnit(timestamp)} />.
-          </>
-        );
-      }
     }
+  } else if (host === undefined) {
+    content = <Spin />;
+  } else {
+    content = (
+      <>
+        Var ni ska äta {dish} visas{" "}
+        <FormattedRelativeTime {...selectUnit(timestamp)} />.
+      </>
+    );
   }
 
   return (

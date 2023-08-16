@@ -36,12 +36,12 @@ const AuthenticatedLayout = ({ children }) => {
       </Head>
 
       <Layout>
-        <Content>{user ? children : <Spin />}</Content>
         <Header>
           <h1 style={{ color: "white", textAlign: "center", marginBottom: 0 }}>
             Vittsjö Cykelfest 2023
           </h1>
         </Header>
+        <Content>{user ? children : <Spin />}</Content>
         <Footer>
           {user?.isLoggedIn && (
             <Button

@@ -1,6 +1,5 @@
-import AssignedDish from "../components/AssignedDish";
 import AuthenticatedLayout from "../components/AuthenticatedLayout";
-// import EventActive from "../components/EventActive";
+import EventActive from "../components/EventActive";
 // import Invitation from "../components/Invitation";
 // import Layout from "../components/Layout";
 
@@ -10,8 +9,7 @@ export default function Home() {
     //   <Invitation />
     // </Layout>
     <AuthenticatedLayout>
-      <AssignedDish />
-      {/* <EventActive /> */}
+      <EventActive />
       <style jsx global>
         {`
           .ant-layout {
@@ -24,13 +22,13 @@ export default function Home() {
             right: 0;
           }
           .ant-layout-content {
-            margin-top: 64px;
-            margin-bottom: 46px;
             padding: 1em;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            max-width: 600px;
+            margin: 64px auto 46px;
           }
           .ant-layout-footer {
             text-align: center;
