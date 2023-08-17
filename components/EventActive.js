@@ -52,7 +52,6 @@ export default function EventActive() {
           <Row gutter={16}>
             <Col span={24}>
               <HostCard
-                user={user}
                 host={user.host1}
                 dish="förrätt"
                 now={now}
@@ -62,7 +61,6 @@ export default function EventActive() {
             </Col>
             <Col span={24}>
               <HostCard
-                user={user}
                 host={user.host2}
                 dish="huvudrätt"
                 now={now}
@@ -72,7 +70,6 @@ export default function EventActive() {
             </Col>
             <Col span={24}>
               <HostCard
-                user={user}
                 host={user.host3}
                 dish="efterrätt"
                 now={now}
@@ -88,17 +85,3 @@ export default function EventActive() {
     </>
   );
 }
-
-// export async function getStaticProps(context) {
-//   const data = await getData();
-
-//   return {
-//     props: {
-//       data,
-//     },
-//     // Next.js will attempt to re-generate the page:
-//     // - When a request comes in
-//     // - At most once every second
-//     revalidate: 1, // In seconds
-//   };
-// }

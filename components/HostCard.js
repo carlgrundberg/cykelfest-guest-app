@@ -1,13 +1,29 @@
-import { Alert, Button, Card, Spin } from "antd";
+import { Alert, Button, Card, Space, Spin } from "antd";
 import { FormattedRelativeTime } from "react-intl";
 import selectUnit from "../lib/selectUnit";
+import useSWR from "swr";
+import useUser from "../lib/useUser";
+import { useEffect, useState } from "react";
 
-const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
+const HostCard = ({ host, dish, now, timestamp, ...props }) => {
+  const { user, mutateUser } = useUser();
+  const [confirming, setConfirming] = useState(false);
+  const { data } = useSWR(confirming && "/api/confirmDish");
   const isSelf = user.name === host?.name;
 
   let actions = [];
 
   let content;
+
+  const onConfirmDish = () => {
+    setConfirming(true);
+  };
+
+  useEffect(() => {
+    if (data?.ok) {
+      mutateUser();
+    }
+  }, [data]);
 
   if (host) {
     actions = [
@@ -36,11 +52,11 @@ const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
 
     if (isSelf) {
       content = (
-        <>
-          <p>
+        <Space direction="vertical">
+          <div>
             Ni bjuder <b>{user.guests * 2} personer</b> (inklusive er själva) på
-            en <b>{dish}</b>.
-          </p>
+            en {dish}.
+          </div>
           {user.note && (
             <Alert
               message="Obs! Några av era gäster har allergier."
@@ -49,7 +65,17 @@ const HostCard = ({ user, host, dish, now, timestamp, ...props }) => {
               showIcon
             />
           )}
-        </>
+          {host.confirmed !== "Ja" && (
+            <Button
+              block
+              type="primary"
+              onClick={onConfirmDish}
+              loading={confirming}
+            >
+              Jag har tagit del av informationen
+            </Button>
+          )}
+        </Space>
       );
     } else {
       content = (
