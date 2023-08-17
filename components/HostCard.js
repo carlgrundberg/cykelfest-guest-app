@@ -55,7 +55,7 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
         <>
           <div>
             Ni bjuder <b>{user.guests * 2} personer</b> (inklusive er själva) på
-            en {dish}.
+            en {dish === "förrätt" && <>välkomstdrink och </>} {dish}.
           </div>
           {host.note && (
             <Alert
