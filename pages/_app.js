@@ -30,6 +30,7 @@ function MyApp({ Component, pageProps }) {
             top: 0;
             left: 0;
             right: 0;
+            z-index: 1;
           }
           .ant-layout-content {
             padding: 1em;
@@ -54,6 +55,14 @@ function MyApp({ Component, pageProps }) {
           }
           .ant-card-body {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+          }
+
+          .ant-card-body::before,
+          .ant-card-body::after {
+            display: none;
           }
         `}
       </style>

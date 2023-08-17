@@ -52,15 +52,15 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
 
     if (isSelf) {
       content = (
-        <Space direction="vertical">
+        <>
           <div>
             Ni bjuder <b>{user.guests * 2} personer</b> (inklusive er själva) på
             en {dish}.
           </div>
-          {user.note && (
+          {host.note && (
             <Alert
-              message="Obs! Några av era gäster har allergier."
-              description={user.note}
+              message="Allergier och specialkost"
+              description={host.note}
               type="info"
               showIcon
             />
@@ -75,7 +75,7 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
               Jag har tagit del av informationen
             </Button>
           )}
-        </Space>
+        </>
       );
     } else {
       content = (
