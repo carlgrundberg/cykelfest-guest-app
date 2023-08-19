@@ -64,6 +64,10 @@ function MyApp({ Component, pageProps }) {
           .ant-card-body::after {
             display: none;
           }
+
+          p {
+            text-align: center;
+          }
         `}
       </style>
     </>

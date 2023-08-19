@@ -4,6 +4,8 @@ import selectUnit from "../lib/selectUnit";
 import useSWR from "swr";
 import useUser from "../lib/useUser";
 import { useEffect, useState } from "react";
+import MapLink from "./MapLink";
+import TelLink from "./TelLink";
 
 const HostCard = ({ host, dish, now, timestamp, ...props }) => {
   const { user, mutateUser } = useUser();
@@ -26,28 +28,12 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
   }, [data]);
 
   if (host) {
-    actions = [
-      <Button
-        type="link"
-        href={`https://www.google.com/maps/dir/?api=1&destination=${host.address}&travelmode=bicycling`}
-        target="_blank"
-      >
-        Hitta dit
-      </Button>,
-    ];
+    actions = [<MapLink address={host.address} />];
     if (host.phone1 && host.phone1 != "-") {
-      actions.push(
-        <Button type="link" href={`tel:${host.phone1}`}>
-          Tel 1
-        </Button>
-      );
+      actions.push(<TelLink number={host.phone1}>Tel 1</TelLink>);
     }
     if (host.phone2 && host.phone2 != "-") {
-      actions.push(
-        <Button type="link" href={`tel:${host.phone2}`}>
-          Tel 2
-        </Button>
-      );
+      actions.push(<TelLink number={host.phone2}>Tel 2</TelLink>);
     }
 
     if (isSelf) {
@@ -96,12 +82,7 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
   }
 
   return (
-    <Card
-      title={dish}
-      style={{ marginBottom: 16 }}
-      actions={actions}
-      {...props}
-    >
+    <Card title={dish} actions={actions} {...props}>
       {content}
     </Card>
   );

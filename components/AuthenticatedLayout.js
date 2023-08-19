@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import { Layout, Button, Spin } from "antd";
+import { Layout, Button, Spin, Space } from "antd";
 import { IntlProvider } from "react-intl";
 import useUser from "../lib/useUser";
 import fetchJson from "../lib/fetchJson";
@@ -43,22 +43,25 @@ const AuthenticatedLayout = ({ children }) => {
         </Header>
         <Content>{user ? children : <Spin />}</Content>
         <Footer>
-          {user?.isLoggedIn && (
-            <Button
-              onClick={async (e) => {
-                setLoading(true);
-                e.preventDefault();
-                await mutateUser(
-                  await fetchJson("/api/logout", { method: "POST" }),
-                  false
-                );
-                setLoading(false);
-              }}
-              loading={loading}
-            >
-              Logga ut
-            </Button>
-          )}
+          <Space>
+            <a href="mailto:info@cykelfest.com">info@cykelfest.com</a>
+            {user?.isLoggedIn && (
+              <Button
+                onClick={async (e) => {
+                  setLoading(true);
+                  e.preventDefault();
+                  await mutateUser(
+                    await fetchJson("/api/logout", { method: "POST" }),
+                    false
+                  );
+                  setLoading(false);
+                }}
+                loading={loading}
+              >
+                Logga ut
+              </Button>
+            )}
+          </Space>
         </Footer>
       </Layout>
     </IntlProvider>

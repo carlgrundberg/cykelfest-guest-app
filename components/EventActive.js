@@ -7,6 +7,8 @@ import selectUnit from "../lib/selectUnit";
 import { useState, useEffect } from "react";
 import timestamps from "../lib/timestamps";
 import HostCard from "./HostCard";
+import MapLink from "./MapLink";
+import TelLink from "./TelLink";
 
 const hideUntil = (now, date, before, after) => {
   return now < date ? (
@@ -49,7 +51,22 @@ export default function EventActive() {
       {user.isLoggedIn ? (
         <>
           <h1>Hej {user.name}!</h1>
-          <Row gutter={16}>
+          <p>
+            Välkommen på cykelfest den 16 september 2023.
+            <br />
+            Här ser du hela programmet och information om var ni ska äta kommer
+            dyka upp eftersom.
+          </p>
+          <Row gutter={[16, 16]}>
+            <Col span={24}>
+              <Card
+                title="Samling"
+                extra={"Kl 15:30"}
+                actions={[<MapLink address={"Medborgarhuset,Vittsjö"} />]}
+              >
+                Samling vid medborgarhusets parkering, där vi hälsar välkommen.
+              </Card>
+            </Col>
             <Col span={24}>
               <HostCard
                 host={user.host1}
@@ -76,6 +93,38 @@ export default function EventActive() {
                 timestamp={timestamps[2]}
                 extra={"Kl 20:00"}
               />
+            </Col>
+            <Col span={24}>
+              <Card
+                title="Efterfest"
+                extra={"Kl 22:00 - 01:00"}
+                actions={[<MapLink address={"Hässleholmsvägen 2,Vittsjö"} />]}
+              >
+                Efterfesten på Stickspåret. Bandet “Något för alla” spelar, och
+                det kommer att finnas öl och vin till självkostnadspris.
+              </Card>
+            </Col>
+            <Col span={24}>
+              <p>
+                Vid frågor eller funderingar så skicka ett mail.
+                <br />
+                Vid problem under cykelfesten så ring någon i festkommitén.
+              </p>
+              <TelLink number="0701443670" block>
+                Carl Grundberg
+              </TelLink>
+              <TelLink number="0730933569" block>
+                Jenny Svensson
+              </TelLink>
+              <TelLink number="0735149279" block>
+                Maria Vilhelmsson
+              </TelLink>
+              <TelLink number="0761194113" block>
+                Ingela Lundqvist
+              </TelLink>
+              <TelLink number="0730299882" block>
+                Niclas Lundqvist
+              </TelLink>
             </Col>
           </Row>
         </>
