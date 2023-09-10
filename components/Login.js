@@ -38,6 +38,8 @@ const Login = () => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        layout="vertical"
+        requiredMark={false}        
       >
         <Form.Item
           label="Mobilnummer"

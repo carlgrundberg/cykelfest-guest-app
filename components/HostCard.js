@@ -43,13 +43,15 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
             Ni bjuder <b>{user.guests * 2} personer</b> (inklusive er själva) på
             en {dish === "förrätt" && <>välkomstdrink och </>} {dish}.
           </div>
-          {host.note && (
+          {host.note ? (
             <Alert
               message="Allergier och specialkost"
               description={host.note}
               type="info"
               showIcon
             />
+          ) : (
+            <em>Inga allergier.</em>
           )}
           {host.confirmed !== "Ja" && (
             <Button
