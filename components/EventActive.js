@@ -98,10 +98,12 @@ export default function EventActive() {
               <Card
                 title="Efterfest"
                 extra={"Kl 22:00 - 01:00"}
-                actions={[<MapLink address={"Hässleholmsvägen 2,Vittsjö"} />]}
+                actions={[<MapLink address={"Hässleholmsvägen 2,Vittsjö"} />]}     
+                cover={<img src="/sticksparet.jpg" />}
               >
-                Efterfesten på Stickspåret. Bandet “Något för alla” spelar, och
-                det kommer att finnas öl och vin till självkostnadspris.
+                  
+                Efterfest på Stickspåret. Bandet “Något för alla” spelar, och
+                det kommer att finnas öl, vin, läsk och vatten till självkostnadspris.
               </Card>
             </Col>
             <Col span={24}>
