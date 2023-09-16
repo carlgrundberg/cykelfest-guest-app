@@ -1,5 +1,5 @@
 import withSession from "../../lib/session";
-import { confirmDish, getDataForHost } from "../../lib/data";
+import { confirmDish } from "../../lib/data";
 
 export default withSession(async (req, res) => {
   const user = req.session.get("user");

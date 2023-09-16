@@ -1,5 +1,5 @@
 import { Alert, Button, Card, Space, Spin } from "antd";
-import { FormattedRelativeTime } from "react-intl";
+import { FormattedRelativeTime, FormattedTime } from "react-intl";
 import selectUnit from "../lib/selectUnit";
 import useSWR from "swr";
 import useUser from "../lib/useUser";
@@ -26,6 +26,8 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
       mutateUser();
     }
   }, [data]);
+
+  const { unit, value } = selectUnit(timestamp);
 
   if (host) {
     actions = [<MapLink address={host.address} />];
@@ -78,7 +80,11 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
     content = (
       <>
         Var ni ska äta {dish} visas{" "}
-        <FormattedRelativeTime {...selectUnit(timestamp)} />.
+        {unit === "minutes" || unit === 'seconds' ? (
+          <FormattedRelativeTime unit={unit} value={value} />
+        ) : (
+          <FormattedTime value={timestamp} />
+        )}
       </>
     );
   }
