@@ -49,6 +49,7 @@ function MyApp({ Component, pageProps }) {
             right: 0;
             padding: 0.5em;
             background: #001529;
+            color: white;
           }
           .ant-card-head-title {
             text-transform: capitalize;
@@ -66,7 +67,7 @@ function MyApp({ Component, pageProps }) {
           }
 
           p {
-            text-align: center;
+            text-align: left;
           }
         `}
       </style>
