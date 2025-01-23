@@ -14,12 +14,11 @@ const SaveTheDate = () => (
     </p>
     <p>
       I god tid innan festen får ni instruktioner om vilken måltid ni bjuder på.
-      Övriga instruktioner erhåller ni på festdagen. Vi startar med gemensam
-      samling och kvällen avslutas med fest och dans på Stickspåret i Vittsjö.
+      Övriga instruktioner erhåller ni på festdagen.
     </p>
     <p>
-      Efter fantastiska maträtter, god dricka, vingliga cykelturer och
-      eventuella besök i buskar och diken träffas vi för att festa natten lång.
+      Vi startar med gemensam samling, och efter fantastiska maträtter, god dricka, vingliga cykelturer och
+      eventuella besök i buskar och diken träffas vi för att festa och dansa natten lång på Stickspåret i Vittsjö.
     </p>
     <p>Kalaset kostar 250:-/par</p>
 
