@@ -11,7 +11,7 @@ const PublicLayout = ({ children }) => {
   return (
     <IntlProvider locale="sv-SE">
       <Head>
-        <title>Vittsjö cykelfest</title>
+        <title>Vittsjö cykelfest 2025</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -36,7 +36,7 @@ const PublicLayout = ({ children }) => {
         <Content>{children}</Content>
         <Header>
           <h1 style={{ color: "white", textAlign: "center", marginBottom: 0 }}>
-            Vittsjö Cykelfest
+            Vittsjö Cykelfest 2025
           </h1>
         </Header>
         <Footer>
