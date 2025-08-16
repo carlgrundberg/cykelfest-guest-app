@@ -79,7 +79,7 @@ const HostCard = ({ host, dish, now, timestamp, ...props }) => {
   } else {
     content = (
       <>
-        Var ni ska äta {dish} visas{" "}
+        Var ni ska äta {dish} visas kl{" "}
         {unit === "minute" || unit === 'second' ? (
           <FormattedRelativeTime unit={unit} value={value} />
         ) : (

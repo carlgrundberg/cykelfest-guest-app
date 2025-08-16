@@ -40,6 +40,7 @@ function MyApp({ Component, pageProps }) {
             flex-direction: column;
             max-width: 600px;
             margin: 64px auto 46px;
+            tet
           }
           .ant-layout-footer {
             text-align: center;
@@ -67,7 +68,7 @@ function MyApp({ Component, pageProps }) {
           }
 
           p {
-            text-align: left;
+            text-align: center;
           }
         `}
       </style>

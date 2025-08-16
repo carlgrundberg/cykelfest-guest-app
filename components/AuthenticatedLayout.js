@@ -14,7 +14,7 @@ const AuthenticatedLayout = ({ children }) => {
   return (
     <IntlProvider locale="sv-SE">
       <Head>
-        <title>Vittsjö cykelfest 2023</title>
+        <title>Vittsjö cykelfest</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -38,7 +38,7 @@ const AuthenticatedLayout = ({ children }) => {
       <Layout>
         <Header>
           <h1 style={{ color: "white", textAlign: "center", marginBottom: 0 }}>
-            Vittsjö Cykelfest 2023
+            Vittsjö Cykelfest
           </h1>
         </Header>
         <Content>{user ? children : <Spin />}</Content>

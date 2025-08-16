@@ -52,7 +52,7 @@ export default function EventActive() {
         <>
           <h1>Hej {user.name}!</h1>
           <p>
-            Välkommen på cykelfest den 16 september 2023.
+            Välkommen på cykelfest den 13 september 2025.
             <br />
             Här ser du hela programmet och information om var ni ska äta kommer
             dyka upp eftersom.
@@ -64,7 +64,7 @@ export default function EventActive() {
                 extra={"Kl 15:30"}
                 actions={[<MapLink address={"Medborgarhuset,Vittsjö"} />]}
               >
-                Samling vid medborgarhusets parkering, där vi hälsar välkommen.
+                Samling på Medborgarhusets parkering, där vi hälsar välkommen.
               </Card>
             </Col>
             <Col span={24}>
@@ -73,7 +73,7 @@ export default function EventActive() {
                 dish="förrätt"
                 now={now}
                 timestamp={timestamps[0]}
-                extra={"Kl 16:00"}
+                extra={"Äts kl 16:00"}
               />
             </Col>
             <Col span={24}>
@@ -82,7 +82,7 @@ export default function EventActive() {
                 dish="huvudrätt"
                 now={now}
                 timestamp={timestamps[1]}
-                extra={"Kl 17:45"}
+                extra={"Äts kl 17:45"}
               />
             </Col>
             <Col span={24}>
@@ -91,32 +91,32 @@ export default function EventActive() {
                 dish="efterrätt"
                 now={now}
                 timestamp={timestamps[2]}
-                extra={"Kl 20:00"}
+                extra={"Äts kl 20:00"}
               />
             </Col>
             <Col span={24}>
               <Card
                 title="Efterfest"
                 extra={"Kl 22:00 - 01:00"}
-                actions={[<MapLink address={"Hässleholmsvägen 2,Vittsjö"} />]}     
-                cover={<img src="/sticksparet.jpg" />}
+                actions={[<MapLink address={"Hårsjövägen 9, Vittsjö"} />]}
+              // cover={<img src="/sticksparet.jpg" />}
               >
-                  
-                Efterfest på Stickspåret. Bandet “Något för alla” spelar, och
+
+                Efterfest i Medborgarhuset. Bandet “Något för alla” spelar, och
                 det kommer att finnas öl, vin, läsk och vatten till självkostnadspris.
               </Card>
             </Col>
             <Col span={24}>
               <p>
-                Vid frågor eller funderingar så skicka ett mail.
+                Vid frågor eller funderingar så skicka ett mail till <a href="mailto:info@cykelfest.com">info@cykelfest.com</a>.
                 <br />
                 Vid problem under cykelfesten så ring någon i festkommitén.
               </p>
               <TelLink number="0701443670" block>
                 Carl Grundberg
               </TelLink>
-              <TelLink number="0730933569" block>
-                Jenny Svensson
+              <TelLink number="0761997557" block>
+                Gustav Gullstrand
               </TelLink>
               <TelLink number="0735149279" block>
                 Maria Vilhelmsson
