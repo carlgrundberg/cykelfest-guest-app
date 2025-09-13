@@ -1,25 +1,11 @@
 import useUser from "../lib/useUser";
-import Layout from "./PublicLayout";
 import Login from "./Login";
 import { Card, Col, Row } from "antd";
-import { FormattedRelativeTime } from "react-intl";
-import selectUnit from "../lib/selectUnit";
 import { useState, useEffect } from "react";
 import timestamps from "../lib/timestamps";
 import HostCard from "./HostCard";
 import MapLink from "./MapLink";
 import TelLink from "./TelLink";
-
-const hideUntil = (now, date, before, after) => {
-  return now < date ? (
-    <>
-      {before}
-      <FormattedRelativeTime {...selectUnit(date)} />.
-    </>
-  ) : (
-    after
-  );
-};
 
 const getTimestampIndex = (now) => {
   let i = 0;
